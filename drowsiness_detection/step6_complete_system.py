@@ -48,8 +48,6 @@ while True:
 
         # 두 눈의 EAR 평균 계산
         avg_ear = (left_ear + right_ear) / 2.0
-        if avg_ear < 0.15:
-            print("눈을 감았어요")
 
         # 눈 하이라이트 (눈 주위 점에 원 그리기)
         for (x, y) in np.concatenate((left_eye, right_eye)):
