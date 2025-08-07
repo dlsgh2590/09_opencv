@@ -14,7 +14,7 @@ detector = dlib.get_frontal_face_detector()
 predictor = dlib.shape_predictor("../shape_predictor_68_face_landmarks.dat")
 
 # EAR 임계값 및 프레임 수 기준 설정 후 객체 생성
-drowsiness_detector = DrowsinessDetector(ear_threshold=0.21, consec_frames=15)
+drowsiness_detector = DrowsinessDetector(ear_threshold=0.25, consec_frames=15)
 alert_system = AlertSystem()
 
 # 웹캠 열기
@@ -48,6 +48,8 @@ while True:
 
         # 두 눈의 EAR 평균 계산
         avg_ear = (left_ear + right_ear) / 2.0
+        if avg_ear < 0.15:
+            print("눈을 감았어요")
 
         # 눈 하이라이트 (눈 주위 점에 원 그리기)
         for (x, y) in np.concatenate((left_eye, right_eye)):
