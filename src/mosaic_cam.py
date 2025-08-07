@@ -3,7 +3,7 @@ import cv2
 # 모자이크 강도 설정 (숫자가 클수록 더 강한 모자이크 효과)
 rate = 15
 
-win_title = '모자이크 캠'
+win_title = 'mosaic_cam'
 
 face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
 
